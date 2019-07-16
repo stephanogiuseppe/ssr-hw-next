@@ -1,19 +1,13 @@
 require('dotenv').config()
 
-const path = require('path')
-const Dotenv = require('dotenv-webpack')
+const webpackConfig = require('./webpack.config')
 
 module.exports = {
   useFileSystemPublicRoutes: false,
 
   webpack: (config) => {
     config.plugins = config.plugins || []
-
-    config.plugins = [
-      ...config.plugins,
-      new Dotenv({ path: path.join(__dirname, '.env'), systemvars: true })
-    ]
-
+    config.plugins = [ ... config.plugins, ... webpackConfig.plugins ]
     return config
   }
 }
