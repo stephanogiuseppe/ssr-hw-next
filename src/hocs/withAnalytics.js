@@ -8,7 +8,7 @@ export default () => Composed => class extends Component {
   }
 
   componentDidMount() {
-    ReactGA.initialize('ID_ANALYTICS')
+    ReactGA.initialize(process.env.ID_GOOGLE_ANALYTICS)
     ReactGA.pageview(window.location.pathname)
   }
 
@@ -16,8 +16,3 @@ export default () => Composed => class extends Component {
     return <Composed { ... this.props } />
   }
 }
-/**
- * new Dotenv({
-        path: path.join(__dirname, '.env'),
-        systemvars: true
-      }) */

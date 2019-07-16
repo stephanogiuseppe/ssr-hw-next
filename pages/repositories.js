@@ -8,11 +8,16 @@ import withAnalytics from '../src/hocs/withAnalytics'
 const Repositories = ({ repositories }) => (
   <div>
     <Head>
-      <title>SSR Next Repositories</title>
+      <title>Stéphano's repositories</title>
     </Head>
+    <h2>Stéphano's Repositories</h2>
     <ul>
       { repositories.map(repository => (
-        <li key={ repository.id }>{ repository.name }</li>
+        <li key={ repository.id }>
+          <Link href={`/repositories/${ repository.name }/contributors`}>
+            <a>{ repository.name }</a>
+          </Link>
+        </li>
       )) }
     </ul>
     <Link href="/"><a>Back</a></Link>
@@ -20,7 +25,7 @@ const Repositories = ({ repositories }) => (
 )
 
 Repositories.getInitialProps = async () => {
-  const repositories = await axios.get('https://api.github.com/orgs/nodejs/repos')
+  const repositories = await axios.get('https://api.github.com/users/stephanogiuseppe/repos')
 
   return { repositories: repositories.data }
 }
