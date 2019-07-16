@@ -1,9 +1,13 @@
 import React from 'react'
 import axios from 'axios'
 import Link from 'next/link'
+import Head from 'next/head'
 
 const Repositories = ({ repositories }) => (
   <div>
+    <Head>
+      <title>SSR Next Repositories</title>
+    </Head>
     <ul>
       { repositories.map(repository => (
         <li key={ repository.id }>{ repository.name }</li>
