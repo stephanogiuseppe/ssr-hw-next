@@ -3,6 +3,8 @@ import axios from 'axios'
 import Link from 'next/link'
 import Head from 'next/head'
 
+import withAnalytics from '../src/hocs/withAnalytics'
+
 const Repositories = ({ repositories }) => (
   <div>
     <Head>
@@ -23,4 +25,4 @@ Repositories.getInitialProps = async () => {
   return { repositories: repositories.data }
 }
 
-export default Repositories
+export default withAnalytics()(Repositories)
