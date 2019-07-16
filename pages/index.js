@@ -9,6 +9,7 @@ const Home = () => (
     <Head>
       <title>SSR Next home</title>
     </Head>
+    <img src="/static/image.png" alt="Node image"/>
     <h1>Hello World</h1>
     <Link href="/repositories"><a>Repositories</a></Link>
   </div>
