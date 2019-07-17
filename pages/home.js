@@ -1,8 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
+import styledComponents from 'styled-components'
 
 import withAnalytics from '../src/hocs/withAnalytics'
+
+const Title = styledComponents.h1`color: #065`
 
 const Home = () => (
   <div>
@@ -10,7 +13,7 @@ const Home = () => (
       <title>SSR Next home</title>
     </Head>
     <img src="/static/image.png" alt="Node image"/>
-    <h1>Hello World</h1>
+    <Title>Hello World</Title>
     <Link href="/repositories"><a>Repositories</a></Link>
   </div>
 )
